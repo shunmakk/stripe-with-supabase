@@ -7,7 +7,11 @@ import { Database } from '@/lib/database.types';
 
 
 const GetDetail = async (id:number,supabase: SupabaseClient<Database>) => {
-  const { data: lesson} = await supabase.from("stripe").select("*").eq("id", id).single();
+  const { data: lesson} = await supabase
+  .from("stripe")
+  .select("*")
+  .eq("id", id)
+  .single();
   return  lesson;
   };
 
